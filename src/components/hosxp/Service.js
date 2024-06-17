@@ -1,7 +1,7 @@
-import http from '../../http'
+import http from '../../http';
 
 export default {
   getPopulationData() {
-    return http.get('/hosxp/populationData')
+    return http.get('/population-data');
   }
-}
+};
