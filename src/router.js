@@ -93,6 +93,11 @@ const routes = [
     component: () => import('./components/brand/Delete.vue')
   },
   {
+    path: '/hosxp',
+    name: 'hosxp',
+    component: () => import('./components/hosxp/Index.vue')
+  },
+  {
     path: '/orderHeader',
     name: 'orderHeader',
     component: () => import('./components/orderHeader/Index.vue')
