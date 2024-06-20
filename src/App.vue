@@ -1,4 +1,5 @@
 <template>
+  {{ user.menu }}
   <div v-if="isReady">
     <div v-if="user">
       <div class="wrapper">
@@ -13,19 +14,24 @@
             </li>
             <li v-for="menu in user.menu" :key="menu.path">
               <router-link :to="`/${menu.path}`" :class="this.$route.path.substr(1).split('/')[0] == menu.path ? 'active bg-primary' : ''">{{menu.title}}</router-link>
+              <ul v-if="menu.subMenu && menu.subMenu.length" class="list-unstyled pl-3">
+                <li v-for="sub in menu.subMenu" :key="sub.path">
+                  <router-link :to="`/${sub.path}`" :class="this.$route.path == `/${sub.path}` ? 'active bg-primary' : ''">{{sub.title}}</router-link>
+                </li>
+              </ul>
             </li>
           </ul>
         </nav>
         <div id="body">
           <nav class="navbar bg-light border-bottom">
             <div class="container-fluid">
-              <label for="sidebar_toggle" class=" btn btn-primary btn-sm"><i class="fa fa-bars"></i></label>
+              <label for="sidebar_toggle" class="btn btn-primary btn-sm"><i class="fa fa-bars"></i></label>
               <ul class="navbar-nav ms-auto">
                 <li id="searchbar_toggle_menu" class="d-none">
                   <a class="nav-link text-secondary" href="#"><label for="searchbar_toggle" class="d-lg-none"><i class="fa fa-search"></i></label></a>
                 </li>
                 <li class="dropdown">
-                  <a class="nav-link text-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><i class="fa fa-user"></i> <span class="d-none d-lg-inline"> {{user.name}}</span></a>
+                  <a class="nav-link text-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><i class="fa fa-user"></i> <span class="d-none d-lg-inline">{{user.name}}</span></a>
                   <div class="dropdown-menu dropdown-menu-end">
                     <router-link to="/profile" class="dropdown-item"><i class="fa fa-user"></i> Profile</router-link>
                     <router-link to="/logout" class="dropdown-item"><i class="fa fa-sign-out"></i> Logout</router-link>
@@ -61,6 +67,7 @@ export default {
     http.get('/user').then(response => {
       this.$root.user = this.user = response.data
       this.isReady = true
+      console.log('user', this.user.menu)
     }).catch(() => {
       this.isReady = true
     })
