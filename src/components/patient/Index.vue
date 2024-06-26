@@ -1,33 +1,83 @@
 <template>
-    <div class="center-container home">
-    <div class="d-flex justify-content-center">
-      <h3>Patient Index</h3>
-    </div>
-    <div class="d-flex justify-content-center">
-        <i>- สัดส่วน เพศ อายุ ภูมิลำเนา เชื้อชาติ สัญชาติ ของผู้ป่วย</i>
-    </div>
-    <div class="d-flex justify-content-center">
-        <i>- สัดส่วนสถานภาพสมรส อาชีพ สถานที่ทำงาน</i>
-    </div>
-    <div class="d-flex justify-content-center">
-        <i>- สัดส่วน สิทธิการรักษาของผู้ป่วย เรียงตามลำดับที่มีสัดส่วนมากไปน้อย</i>
-    </div>
-    <div class="d-flex justify-content-center">
-        <i>- กลุ่มโรคหลักที่ผู้ป่วยเป็นมากที่สุด 30 อันดับแรก</i>
-    </div>
-    <div class="d-flex justify-content-center">
-        <i>- โรคประจำตัวที่ผู้ป่วยเป็นมากที่สุด 10 อันดับแรก</i>
-    </div>
-    <div class="d-flex justify-content-center">
-        <i>- การผ่าตัดผู้ป่วยที่ได้รับกันมากที่สุด 20 อันดับแรก</i>
-    </div>
-    <div class="d-flex justify-content-center">
-        <i>- แนวโน้มการเปลี่ยนแปลงลักษณะผู้ป่วยในรอบ 6 เดือน 1 ปี 3 ปี 5 ปี</i>
-    </div>
-  </div>
-  </template>
+    <section class="layout">
+        <div class="d1">&nbsp;สัดส่วน เพศ อายุ ของผู้ป่วย<br />
+            <SexChart />
+        </div>
+        <div class="d2">&nbsp;สัดส่วน สถานภาพ อายุ ของผู้ป่วย<br />
+            <StatusChart />
+        </div>
+        <div class="d3">&nbsp;สัดส่วน สัญชาติ อายุ ของผู้ป่วย<br />
+            <NatChart />
+        </div>
+        <div class="d4">&nbsp;สัดส่วน อาชีพ เพศ ของผู้ป่วย<br />
+            <OccChart />
+        </div>
+    </section>
+</template>
   <script>
+import StatusChart from '../patient/PatientStatus.vue'
+import SexChart from '../patient/PatientSex.vue'
+import NatChart from '../patient/PatientNationality.vue'
+import OccChart from '../patient/PatientOccupation.vue'
+
   export default {
-    name: 'patient'
+    name: 'patient',
+    components: {
+        StatusChart,
+        SexChart,
+        NatChart,
+        OccChart
+    }
   }
   </script>
+<style scoped>
+.layout {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid:
+        'd1 d2' 1fr 
+        'd3 d4' 1fr 
+        'd5 d6' 1fr 
+        'd7 d8' 1fr 
+        / 1fr 1fr;
+    gap: 3px;
+}
+
+.d1 {
+    grid-area: d1;
+}
+
+.d2 {
+    grid-area: d2;
+}
+
+.d3 {
+    grid-area: d3;
+}
+
+.d4 {
+    grid-area: d4;
+}
+
+.d5 {
+    grid-area: d5;
+}
+
+.d6 {
+    grid-area: d6;
+}
+
+.d7 {
+    grid-area: d7;
+}
+
+.d8 {
+    grid-area: d8;
+}
+
+.d9 {
+    grid-area: d9;
+}
+</style>

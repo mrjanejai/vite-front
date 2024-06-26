@@ -14,15 +14,21 @@
                   <div class="row">
                     <div class="mb-3 col-12">
                       <label class="form-label" for="user_account_name">User Name</label>
-                      <input id="user_account_name" name="name" class="form-control form-control-sm" v-model="user.name" required maxlength="50" />
+                      <input id="user_account_name" name="name" class="form-control form-control-sm" v-model="user.name"
+                        required maxlength="50" />
                     </div>
                     <div class="mb-3 col-12">
                       <label class="form-label" for="user_account_password">Password</label>
-                      <input id="user_account_password" name="password" class="form-control form-control-sm" v-model="user.password" type="password" required maxlength="100" />
+                      <input id="user_account_password" name="password" class="form-control form-control-sm"
+                        v-model="user.password" type="password" required maxlength="100" />
                     </div>
                     <div class="col-12">
                       <button class="btn btn-sm btn-secondary w-100">Login</button>
-                      <router-link to="/resetPassword">Forgot Password?</router-link>
+                      <!-- <router-link to="/resetPassword">Forgot Password?</router-link> -->
+                    </div>
+                    <div class="mb-3 col-12">
+                      <input type="checkbox" id="user_check_hosxp" name="hosxp" v-model="user.hosxp" />
+                      <label class="form-label" for="user_check_hosxp">Login From Hosxp</label>
                     </div>
                   </div>
                 </form>
@@ -42,7 +48,10 @@
     name: 'Login',
     data() {
       return {
-        user: {},
+        user: {name: '',
+      password: '',
+      hosxp: true
+    },
         error: null
       }
     },

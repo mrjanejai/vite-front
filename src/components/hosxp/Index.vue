@@ -6,7 +6,7 @@
     <div class="d5">&nbsp;กองทุน 5<br /><PieChart /></div>
     <div class="d6">&nbsp;กองทุน 6<br /><RadarChart /></div>
     <div>
-    <apexchart type="bar" :options="chartOptions" :series="series" />
+    <xxxhart />
   </div>
 </template>
 
@@ -19,6 +19,7 @@ import BubbleChart from '../apexCharts/BubbleChart.vue';
 import LineChart from '../apexCharts/LineChart.vue';
 import PieChart from '../apexCharts/PieChart.vue';
 import RadarChart from '../apexCharts/RadarChart.vue';
+import xxxhart from '../patient/PatientStatus.vue'
 
 export default {
   components: {
@@ -28,7 +29,8 @@ export default {
     BubbleChart,
     LineChart,
     PieChart,
-    RadarChart
+    RadarChart,
+    xxxhart
   },
   data() {
     return {
@@ -73,28 +75,32 @@ export default {
         const data = response.data;
         this.series = [
           {
-            name: 'Male',
-            data: data.male
+            name: 'single',
+            data: data.single
           },
           {
-            name: 'Female',
-            data: data.female
+            name: 'married',
+            data: data.married
           },
           {
-            name: 'Nation Thai',
-            data: data.nation_thai
+            name: 'widow',
+            data: data.widow
           },
           {
-            name: 'Nation Other',
-            data: data.nation_other
+            name: 'divorced',
+            data: data.divorced
           },
           {
-            name: 'Area In',
-            data: data.area_in
+            name: 'separated',
+            data: data.separated
           },
           {
-            name: 'Area Out',
-            data: data.area_out
+            name: 'monk',
+            data: data.monk
+          },
+          {
+            name: 'unknown',
+            data: data.unknown
           }
         ];
       }).catch(error => {
