@@ -51,6 +51,15 @@ const routes = [
     component: () => import('./components/userAccount/Delete.vue')
   },
   {
+    path: '/hosxpOfficer',
+    name: 'HosxpOfficerIndex',
+    component: () => import('./components/hosxpOfficer/Index.vue')
+  },
+  {
+    path: '/hosxpOfficer/edit/:id/',
+    component: () => import('./components/hosxpOfficer/Edit.vue')
+  },
+  {
     path: '/product',
     name: 'product',
     component: () => import('./components/product/Index.vue')

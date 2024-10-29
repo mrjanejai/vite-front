@@ -37,8 +37,8 @@
                   <a class="nav-link text-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><i
                       class="fa fa-user"></i> <span class="d-none d-lg-inline">{{user.name}}</span></a>
                   <div class="dropdown-menu dropdown-menu-end">
-                    <router-link v-if="!user.phosxp" to="/profile" class="dropdown-item"><i class="fa fa-user"></i>
-                      Profile</router-link>
+                    <!-- <router-link v-if="!user.phosxp" to="/profile" class="dropdown-item"><i class="fa fa-user"></i>
+                      Profile</router-link> -->
                     <router-link to="/logout" class="dropdown-item"><i class="fa fa-sign-out"></i> Logout</router-link>
                   </div>
                 </li>
