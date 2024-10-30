@@ -52,7 +52,7 @@ const routes = [
   },
   {
     path: '/hosxpOfficer',
-    name: 'HosxpOfficerIndex',
+    name: 'hosxpOfficer',
     component: () => import('./components/hosxpOfficer/Index.vue')
   },
   {

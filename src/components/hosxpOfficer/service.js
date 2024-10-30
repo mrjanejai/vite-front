@@ -1,17 +1,22 @@
-// components/HosxpOfficer/service.js
-import http from '../../http';
+import http from '../../http'
 
 export default {
-  getOfficers(params) {
-    // ใช้ในการดึงข้อมูล officer พร้อม query parameters สำหรับการแบ่งหน้า
-    return http.get('/hosxpOfficer', { params });
+  get(id) {
+    if (id) {
+      console.log('get yes');
+      return http.get(`/hosxpOfficers/${id}`)
+    } else {
+      console.log('get no');
+      return http.get('/hosxpOfficers' + location.search)
+    }
   },
-  getOfficerById(id) {
-    // ใช้ในการดึงข้อมูล officer เฉพาะตาม ID
-    return http.get(`/hosxpOfficer/${id}`);
-  },
-  editOfficer(id, data) {
-    // ใช้ในการแก้ไขข้อมูล officer เฉพาะ role
-    return http.put(`/hosxpOfficer/${id}/edit`, data);
+  edit(id, data) {
+    if (data) {
+      console.log('get yes edit');
+      return http.put(`/hosxpOfficers/${id}`, data)
+    } else {
+      console.log('get no edit');
+      return http.get(`/hosxpOfficers/edit/${id}`)
+    }
   }
-};
+}
