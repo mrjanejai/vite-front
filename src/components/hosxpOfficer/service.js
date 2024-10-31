@@ -16,7 +16,7 @@ export default {
       return http.put(`/hosxpOfficers/${id}`, data)
     } else {
       console.log('get no edit');
-      return http.get(`/hosxpOfficers/edit/${id}`)
+      return http.get(`/hosxpOfficers/${id}/edit`)
     }
   }
 }
