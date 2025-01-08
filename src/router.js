@@ -106,6 +106,11 @@ const routes = [
     name: 'hosxp',
     component: () => import('./components/hosxp/Index.vue')
   },
+   {
+    path: '/opdConfirm',
+    name: 'opdConfirm',
+    component: () => import('./components/opdConfirm/Index.vue')
+  },
   {
     path: '/orderHeader',
     name: 'orderHeader',
