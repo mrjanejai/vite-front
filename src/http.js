@@ -4,7 +4,7 @@ import router from './router'
 let http = axios.create({
   baseURL: 'http://localhost:8000/api',
   headers: {
-    'Content-type': 'application/json'
+    'Content-type': 'application/json; charset=utf-8'
   }
 })
 http.interceptors.request.use(config => {

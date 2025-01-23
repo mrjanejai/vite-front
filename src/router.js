@@ -155,6 +155,111 @@ const routes = [
     component: () => import('./components/patientActivity/Index.vue')
   },
   {
+    path: '/maDepartment',
+    name: 'maDepartment',
+    component: () => import('./components/maDepartment/Index.vue')
+  },
+  {
+    path: '/maDepartment/create',
+    component: () => import('./components/maDepartment/Create.vue')
+  },
+  {
+    path: '/maDepartment/:id/',
+    component: () => import('./components/maDepartment/Detail.vue')
+  },
+  {
+    path: '/maDepartment/edit/:id/',
+    component: () => import('./components/maDepartment/Edit.vue')
+  },
+  {
+    path: '/maDepartment/delete/:id/',
+    component: () => import('./components/maDepartment/Delete.vue')
+  },
+  {
+    path: '/maProvider',
+    name: 'maProvider',
+    component: () => import('./components/maProvider/Index.vue')
+  },
+  {
+    path: '/maProvider/create',
+    component: () => import('./components/maProvider/Create.vue')
+  },
+  {
+    path: '/maProvider/:id/',
+    component: () => import('./components/maProvider/Detail.vue')
+  },
+  {
+    path: '/maProvider/edit/:id/',
+    component: () => import('./components/maProvider/Edit.vue')
+  },
+  {
+    path: '/maProvider/delete/:id/',
+    component: () => import('./components/maProvider/Delete.vue')
+  },
+  {
+    path: '/maStatusType',
+    name: 'maStatusType',
+    component: () => import('./components/maStatusType/Index.vue')
+  },
+  {
+    path: '/maStatusType/create',
+    component: () => import('./components/maStatusType/Create.vue')
+  },
+  {
+    path: '/maStatusType/:id/',
+    component: () => import('./components/maStatusType/Detail.vue')
+  },
+  {
+    path: '/maStatusType/edit/:id/',
+    component: () => import('./components/maStatusType/Edit.vue')
+  },
+  {
+    path: '/maStatusType/delete/:id/',
+    component: () => import('./components/maStatusType/Delete.vue')
+  },
+  {
+    path: '/maType',
+    name: 'maType',
+    component: () => import('./components/maType/Index.vue')
+  },
+  {
+    path: '/maType/create',
+    component: () => import('./components/maType/Create.vue')
+  },
+  {
+    path: '/maType/:id/',
+    component: () => import('./components/maType/Detail.vue')
+  },
+  {
+    path: '/maType/edit/:id/',
+    component: () => import('./components/maType/Edit.vue')
+  },
+  {
+    path: '/maType/delete/:id/',
+    component: () => import('./components/maType/Delete.vue')
+  },
+  {
+    path: '/ma',
+    name: 'ma',
+    component: () => import('./components/ma/Index.vue')
+  },
+  {
+    path: '/ma/create',
+    component: () => import('./components/ma/Create.vue')
+  },
+  {
+    path: '/ma/:id/',
+    component: () => import('./components/ma/Detail.vue')
+  },
+  {
+    path: '/ma/edit/:id/',
+    component: () => import('./components/ma/Edit.vue')
+  },
+  {
+    path: '/ma/delete/:id/',
+    component: () => import('./components/ma/Delete.vue')
+  },
+  {
     path: '/:path(.*)',
     component: () => import('./components/NotFound.vue')
   }
