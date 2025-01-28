@@ -2,6 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="col">
+        <router-link class="btn btn-sm btn-primary" to="/ma/create">แจ้งเหตุ</router-link>
+        <hr />
         <div class="col-12"><input id="searchbar_toggle" type="checkbox" />
           <div id="searchbar" class="mb-4">
             <div class="form-group col-lg-2 me-2 mb-lg-0 mb-3">
@@ -40,9 +42,9 @@
               <button class="btn btn-secondary btn-sm" @click="clearSearch()">Clear</button>
             </div>
           </div>
-          <table class="table table-sm table-striped table-hover">
+          <table>
             <thead>
-              <tr>
+              <tr class="text-center">
                 <th :class="getSortClass('Ma.id','asc')">
                   <router-link :to="getLink('sort','Ma.id','asc')">Id</router-link>
                 </th>
@@ -89,7 +91,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="ma in mas" :key="ma">
+              <tr v-for="ma in mas" :key="ma" :class="getRowClass(ma.ma_status_type_id)">
                 <td class="text-center">{{ma.id}}</td>
                 <td>{{ma.ma_topic}}</td>
                 <td class="d-none d-md-table-cell">{{ma.hw_id}}</td>
@@ -150,7 +152,7 @@
               </div>
             </div>
           </div>
-          <router-link class="btn btn-sm btn-primary" to="/ma/create">Create</router-link>
+          <!-- <router-link class="btn btn-sm btn-primary" to="/ma/create">Create</router-link> -->
         </div>
         <component :is="'style'">#searchbar_toggle_menu { display: inline-flex!important }</component>
       </div>
@@ -183,17 +185,50 @@ export default {
   methods: {
     ...Util,
     get() {
-      Service.get().then(response => {
-        this.mas = response.data.mas
-        this.paging = {
-          current: parseInt(this.$route.query.page) || 1,
-          size: parseInt(this.$route.query.size) || 10,
-          last: response.data.last
-        }
-      }).catch((e) => {
-        alert(e.response.data.message)
-      })
-    }
+        Service.get().then(response => {
+            this.mas = response.data.mas
+            this.paging = {
+                current: parseInt(this.$route.query.page) || 1,
+                size: parseInt(this.$route.query.size) || 10,
+                last: response.data.last
+            }
+        }).catch((e) => {
+            alert(e.response.data.message)
+        });
+      },
+    getRowClass(statusTypeId) {
+            switch (statusTypeId) {
+                case 1:
+                    return "bg-danger text-white"; // สีแดง
+                case 2:
+                    return "bg-warning text-dark"; // สีเหลือง
+                case 3:
+                    return "bg-success text-white"; // สีเขียว
+                default:
+                    return "bg-secondary text-white"; // สีเทา
+            }
+        },
   }
 }
 </script>
+<style scoped>
+.bg-danger {
+    background-color: #dd8b93 !important;
+    color: black !important;
+}
+
+.bg-warning {
+    background-color: #e2c777 !important;
+    color: black !important;
+}
+
+.bg-success {
+    background-color: #65c07a !important;
+    color: black !important;
+}
+
+.bg-secondary {
+    background-color: #9ea2a7 !important;
+    color: black !important;
+}
+</style>
